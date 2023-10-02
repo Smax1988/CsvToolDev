@@ -15,33 +15,41 @@ public class CsvService
         string path = "D:\\Coding\\EKE\\2APEC\\ITL-Singer\\CsvToolDev\\csvConsole\\test.csv";
         List<List<string>> rows = GetRows(path);
         List<List<string>> columns = GetColumns(rows);
+        List<List<string>> unifiedRows = UnifyColumns(columns);
 
-        UnifyColumns(columns);
+        foreach (List<string> records in unifiedRows)
+        {
+            foreach(string record in records)
+            {
+                Console.Write(record);
+            }
+            Console.Write("\n");
+        }
     }
 
-    private List<List<string>> GetRows(string csvFilePath)
+    private static List<List<string>> GetRows(string csvFilePath)
     {
-        List<List<string>> recordsAndWords = new List<List<string>>();
+        List<List<string>> rows = new List<List<string>>();
         string[] records = File.ReadAllLines(csvFilePath);
 
         foreach (string record in records)
         {
             List<string> words = new List<string>(record.Split(','));
-            recordsAndWords.Add(words);
+            rows.Add(words);
         }
 
-        return recordsAndWords;
+        return rows;
     }
 
-    private List<List<string>> GetColumns(List<List<string>> recordsAndWords)
+    private static List<List<string>> GetColumns(List<List<string>> rows)
     {
-        int maxWords = recordsAndWords.Max(record => record.Count);
+        int maxWords = rows.Max(record => record.Count);
 
         List<List<string>> columns = new List<List<string>>();
         for (int i = 0; i < maxWords; i++)
         {
             List<string> column = new List<string>();
-            foreach (List<string> record in recordsAndWords)
+            foreach (List<string> record in rows)
             {
                 if (i < record.Count)
                 {
@@ -58,29 +66,44 @@ public class CsvService
         return columns;
     }
 
-    public void UnifyColumns(List<List<string>> columns)
+    public static List<List<string>> UnifyColumns(List<List<string>> columns)
     {
         foreach (List<string> column in columns)
         {
-            UnifyColumn(column);
-        }
-    }
+            int longestItemLength = column.Aggregate("", (max, cur) => max.Length > cur.Length ? max : cur).Length + 2; // add two more space for a little gap between columns
 
-    public void UnifyColumn(List<string> column)
-    {
-        int longestItemLength = column.Aggregate("", (max, cur) => max.Length > cur.Length ? max : cur).Length;
-
-        // loop through each column
-        for (int j = 0; j < column.Count; j++)
-        {
-            // loop through each item of column
-            for (int i = 0; i < longestItemLength; i++)
+            // loop through each column
+            for (int j = 0; j < column.Count; j++)
             {
-                while (column[i].Length < longestItemLength)
+                // loop through each item of column
+                for (int i = 0; i < column.Count; i++)
                 {
-                    column[i] += " ";
+                    while (column[i].Length <= longestItemLength)
+                    {
+                        column[i] += " ";
+                    }
                 }
             }
         }
+        return GetUnifiedRows(columns);
+    }
+
+    private static List<List<string>> GetUnifiedRows(List<List<string>> columns)
+    {
+        //basically swap inner and outer List
+        int numRows = columns.Count;
+        int numCols = columns[0].Count;
+
+        List<List<string>> unifiedRows = new List<List<string>>();
+        for (int i = 0; i < numCols; i++)
+        {
+            List<string> row = new List<string>();
+            for (int j = 0; j < numRows; j++)
+            {
+                row.Add(columns[j][i]);
+            }
+            unifiedRows.Add(row);
+        }
+        return unifiedRows;
     }
 }
