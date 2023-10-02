@@ -11,12 +11,14 @@ namespace csvConsole;
 public class CsvService
 {
     /// <summary>
-    /// Writes the content of a .csv file to the console.
+    /// Writes the content of a given .csv file to the console.
     /// </summary>
-    public void DisplayFile()
+    /// /// <param name="filePath">Path to the file that should be displayed in Console</param>
+    public void DisplayFile(string filePath)
     {
-        string path = "D:\\Coding\\EKE\\2APEC\\ITL-Singer\\CsvToolDev\\csvConsole\\test.csv";
-        List<List<string>> rows = GetRows(path);
+        // path = "D:\\Coding\\EKE\\2APEC\\ITL-Singer\\CsvToolDev\\csvConsole\\test.csv";
+
+        List<List<string>> rows = GetRows(filePath);
         List<List<string>> unifiedRows = UnifyRows(rows);
 
         foreach (List<string> records in unifiedRows)
