@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csvConsole", "csvConsole\csvConsole.csproj", "{29051392-B03A-4D90-9C69-6ECDBA60A86A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "csvConsole", "csvConsole\csvConsole.csproj", "{29051392-B03A-4D90-9C69-6ECDBA60A86A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csvEditor", "csvEditor\csvEditor.csproj", "{35D341BB-9636-424D-8094-80447CC7E74B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csvWPF", "csvWPF\csvWPF.csproj", "{CDBD1931-94E3-4E30-97A9-B37EDDD4F494}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{29051392-B03A-4D90-9C69-6ECDBA60A86A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29051392-B03A-4D90-9C69-6ECDBA60A86A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29051392-B03A-4D90-9C69-6ECDBA60A86A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35D341BB-9636-424D-8094-80447CC7E74B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35D341BB-9636-424D-8094-80447CC7E74B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35D341BB-9636-424D-8094-80447CC7E74B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35D341BB-9636-424D-8094-80447CC7E74B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDBD1931-94E3-4E30-97A9-B37EDDD4F494}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDBD1931-94E3-4E30-97A9-B37EDDD4F494}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDBD1931-94E3-4E30-97A9-B37EDDD4F494}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDBD1931-94E3-4E30-97A9-B37EDDD4F494}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
