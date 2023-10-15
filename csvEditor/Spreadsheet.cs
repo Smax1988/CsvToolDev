@@ -27,7 +27,11 @@ public class Spreadsheet
         {
             foreach (var row in table)
             {
-                if (!string.IsNullOrEmpty(row.A) || !string.IsNullOrEmpty(row.B) || !string.IsNullOrEmpty(row.C) || !string.IsNullOrEmpty(row.D) || !string.IsNullOrEmpty(row.E))
+                if (!string.IsNullOrEmpty(row.A) ||
+                    !string.IsNullOrEmpty(row.B) || 
+                    !string.IsNullOrEmpty(row.C) || 
+                    !string.IsNullOrEmpty(row.D) || 
+                    !string.IsNullOrEmpty(row.E))
                 {
                     sw.WriteLine($"{row.A},{row.B},{row.C},{row.D},{row.E}");
                 }

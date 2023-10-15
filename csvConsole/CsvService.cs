@@ -16,8 +16,6 @@ public class CsvService
     /// /// <param name="filePath">Path to the file that should be displayed in Console</param>
     public void DisplayFile(string filePath)
     {
-        // path = "D:\\Coding\\EKE\\2APEC\\ITL-Singer\\CsvToolDev\\csvConsole\\test.csv";
-
         List<List<string>> rows = GetRows(filePath);
         List<List<string>> unifiedRows = UnifyRows(rows);
 
