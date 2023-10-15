@@ -2,5 +2,7 @@
 
 CsvService csvService = new CsvService();
 
-string path = "D:\\Coding\\EKE\\2APEC\\ITL-Singer\\CsvToolDev\\csvConsole\\test.csv";
-csvService.DisplayFile(path);
+string path1 = "../../../../csvConsole//test.csv";
+string path2 = "../../../../csvConsole//test2.csv";
+
+csvService.DisplayFile(path2);

@@ -35,7 +35,15 @@
             <!--<Grid Name="SpreadsheetContent" >
             
             </Grid>-->
-            <DataGrid x:Name="DataGrid" Grid.Row="0" AutoGenerateColumns="True" MinColumnWidth="100" CanUserReorderColumns="False" CanUserSortColumns="False" HeadersVisibility="None" HorizontalScrollBarVisibility="Auto" SelectionUnit="CellOrRowHeader" />
+            <DataGrid x:Name="DataGrid" Grid.Row="0" AutoGenerateColumns="False" MinColumnWidth="100" CanUserReorderColumns="False" CanUserSortColumns="False" HeadersVisibility="All" HorizontalScrollBarVisibility="Auto" SelectionUnit="CellOrRowHeader">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding A}" />
+                    <DataGridTextColumn Binding="{Binding B}" />
+                    <DataGridTextColumn Binding="{Binding C}" />
+                    <DataGridTextColumn Binding="{Binding D}" />
+                    <DataGridTextColumn Binding="{Binding E}" />
+                </DataGrid.Columns>
+            </DataGrid>
         </DockPanel>
     </ScrollViewer>
 </Window>
